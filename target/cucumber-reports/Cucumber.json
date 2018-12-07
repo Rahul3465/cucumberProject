@@ -1,0 +1,80 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2593681349,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.BeforeSteps()"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Customer place an order by purchasing an item from search",
+        "description": "",
+        "id": "automated-end2end-tests;customer-place-an-order-by-purchasing-an-item-from-search",
+        "after": [
+          {
+            "result": {
+              "duration": 62500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.AfterSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5367364463,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user is on Home Page",
+            "match": {
+              "location": "HomePageSteps.user_is_on_Home_Page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 8417548190,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "choose to buy the first item",
+            "match": {
+              "location": "CartPageSteps.choose_to_buy_the_first_item()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5134885712,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "moves to checkout from mini cart",
+            "match": {
+              "location": "CheckoutPageSteps.moves_to_checkout_from_mini_cart()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Automated End2End Tests",
+    "description": "",
+    "id": "automated-end2end-tests",
+    "keyword": "Feature",
+    "uri": "End_to_End.feature"
+  }
+]
