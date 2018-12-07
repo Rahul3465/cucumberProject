@@ -42,7 +42,7 @@ public class Hooks
 	 
 	 //Building up the destination path for the screenshot to save
 	 //Also make sure to create a folder 'screenshots' with in the cucumber-report folder
-	 File destinationPath = new File(System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + screenshotName + ".png");
+	 File destinationPath = new File(System.getProperty("user.dir") + "/target/failure_screenshots/" + screenshotName + ".png");
 	 
 	 //Copy taken screenshot from source location to destination location
 	 Files.copy(sourcePath, destinationPath);   
