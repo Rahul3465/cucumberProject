@@ -16,13 +16,6 @@ public class CartPage
 		PageFactory.initElements(driver, this);
 	}
 
-	//	 	public void choose_to_buy_the_first_item() {
-	//		 List<WebElement> items = driver.findElements(By.xpath("//a[contains(text(),'More Details >')]"));
-	//		 items.get(0).click();
-
-	//	 WebElement addToCart = driver.findElement(By.xpath("//input[@value='Add To Cart']"));
-	//	 addToCart.click(); 
-
 	@FindBy(xpath="//a[contains(text(),'More Details >')]")
 	private List<WebElement> items;
 

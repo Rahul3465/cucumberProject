@@ -10,12 +10,14 @@ public class HomePage
 {
 	WebDriver driver;
 
-	public HomePage(WebDriver driver) {
+	public HomePage(WebDriver driver)
+	{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public void navigateTo_HomePage() {
+	public void navigateTo_HomePage()
+	{
 		driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,1000)");
