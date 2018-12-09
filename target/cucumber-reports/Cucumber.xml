@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="21.513542">
-<testcase classname="Automated End2End Tests" name="Customer place an order by purchasing an item from search" time="21.513542">
-<system-out><![CDATA[Given user is on Home Page..................................................passed
-And choose to buy the first item............................................passed
-And moves to checkout from mini cart........................................passed
-]]></system-out>
-</testcase>
-</testsuite>
