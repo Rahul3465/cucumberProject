@@ -25,8 +25,5 @@ public class TestRunner
 		Reporter.setSystemInfo("OS Version", System.getProperty("os.version"));
 		Reporter.setSystemInfo("OS Arch", System.getProperty("os.arch"));
 		Reporter.setSystemInfo("Java Version", System.getProperty("java.version"));
-		
-//		Reporter.setSystemInfo("Selenium", "3.7.0");
-//		Reporter.setSystemInfo("Maven", "3.5.2");
 	}
 }
