@@ -1,17 +1,24 @@
 package dataProviders;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+
 import enums.DriverType;
 import enums.EnvironmentType;
+import jxl.Cell;
+import jxl.LabelCell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 public class ConfigFileReader
 {
-	private Properties properties;
+	private static  Properties properties;
 	private final String propertyFilePath= "configs//Configuration.properties";
 
 	public ConfigFileReader(){
@@ -49,7 +56,7 @@ public class ConfigFileReader
 		return 30; 
 	}
 
-	public String getApplicationUrl() {
+	public String getApplicationUrl(){
 		String url = properties.getProperty("url");
 		if(url != null) return url;
 		else throw new RuntimeException("Application Url not specified in the Configuration.properties file for the Key:url");
@@ -79,5 +86,36 @@ public class ConfigFileReader
 		String windowSize = properties.getProperty("windowMaximize");
 		if(windowSize != null) return Boolean.valueOf(windowSize);
 		return true;
+	}
+	
+	public static Cell[] readExcel(String sheetName, String uniqueValue) throws BiffException, IOException,Exception
+	{
+		Workbook wrk1;
+		Sheet sheet1;
+		//Cell colRow;
+
+		String testDataForDefaultReadExcel = properties.getProperty("testDataForDefaultReadExcel");
+		wrk1 = Workbook.getWorkbook(new File(testDataForDefaultReadExcel)); // Connecting to excel workbook.
+		sheet1 = wrk1.getSheet(sheetName); // Connecting to the sheet
+
+		LabelCell cell=sheet1.findLabelCell(uniqueValue);
+		int row=cell.getRow();
+		Cell[] record = sheet1.getRow(row);
+		return record;
+	}
+
+	//Read from Specified Excel
+	public static Cell[] readExcel(String filePath, String sheetName, String uniqueValue) throws BiffException, IOException, Exception
+	{
+		Workbook wrk1;
+		Sheet sheet1;
+
+		wrk1 = Workbook.getWorkbook(new File(filePath)); // Connecting to excel workbook.
+		sheet1 = wrk1.getSheet(sheetName); // Connecting to the sheet
+
+		LabelCell cell=sheet1.findLabelCell(uniqueValue);
+		int row=cell.getRow();
+		Cell[] record = sheet1.getRow(row);
+		return record;
 	}
 }
