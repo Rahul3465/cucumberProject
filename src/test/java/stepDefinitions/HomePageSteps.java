@@ -16,7 +16,7 @@ public class HomePageSteps
 	}
 	
 	@Given("^user is on Home Page$")
-	public void user_is_on_Home_Page()
+	public void user_is_on_Home_Page() throws Exception
 	{
 		homePage = testContext.getPageObjectManager().getHomePage();
 		homePage.navigateTo_HomePage();
