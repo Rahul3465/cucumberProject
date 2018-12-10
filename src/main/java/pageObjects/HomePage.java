@@ -16,9 +16,11 @@ public class HomePage
 		PageFactory.initElements(driver, this);
 	}
 
-	public void navigateTo_HomePage()
+	public void navigateTo_HomePage() throws Exception
 	{
 		driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
+		Thread.sleep(5000);
+		driver.navigate().refresh();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,1000)");
 	}
