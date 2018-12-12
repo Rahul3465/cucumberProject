@@ -10,9 +10,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = "src/test/java/functionalTests",
-		glue= {"stepDefinitions"},
-		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
-		monochrome = true
+		glue= "stepDefinitions",strict=true,monochrome = true,
+		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"}
 		)
 public class TestRunner
 {
