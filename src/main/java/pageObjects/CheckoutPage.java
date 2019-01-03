@@ -18,28 +18,31 @@ public class CheckoutPage
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath="//span[contains(text(),'Car')]")
-	private WebElement cart;
 
-	@FindBy(xpath="//span[contains(text(),'Continue')]")
+	@FindBy(xpath="(//a[@class='a-button-text a-text-center'])[1]")
 	private WebElement checkout;
 	
-	@FindBy(xpath="//input[@id='log']")
+	@FindBy(xpath="//input[@id='continue']")
+	private WebElement continueButton;
+	
+	@FindBy(xpath="//input[@name='email']")
 	private WebElement userName;
 	
-	@FindBy(xpath="//input[@id='pwd']")
+	@FindBy(xpath="//input[@name='password']")
 	private WebElement password;
 	
-	
-	public void cart()
-	{
-		cart.click();
-	}
+
 
 	public void checkout()
 	{
 		checkout.click();
 	}
+	
+	public void continuebtn()
+	{
+		continueButton.click();	
+	}
+	
 	
 	public void enterDetails(String sheet, String uniqueName) throws Exception
 	{
@@ -52,6 +55,7 @@ public class CheckoutPage
 		
 		userName.sendKeys(un);
 		Thread.sleep(5000);
+		continuebtn();
 		password.sendKeys(pwd);
 		Thread.sleep(5000);
 		
