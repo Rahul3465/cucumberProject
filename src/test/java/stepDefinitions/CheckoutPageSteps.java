@@ -18,7 +18,6 @@ public class CheckoutPageSteps
 	public void moves_to_checkout_from_mini_cart() throws Exception
 	{
 		checkoutPage = testContext.getPageObjectManager().getCheckoutPage();
-		checkoutPage.cart();
 		checkoutPage.checkout();
 		checkoutPage.enterDetails("sampleSheet", "Login");
 	}

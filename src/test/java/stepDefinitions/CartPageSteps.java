@@ -15,10 +15,12 @@ public class CartPageSteps
 	 }
 	 
 	 @When("^choose to buy the first item$")
-		public void choose_to_buy_the_first_item()
+		public void choose_to_buy_the_first_item() throws Exception
 		{
 			cartPage = testContext.getPageObjectManager().getCartPage();
-			cartPage.select_Product(0);
+			cartPage.select_Product();
+			cartPage.clickOnSearch();
+			cartPage.selectingShoe();
 			cartPage.add_to_cart();
 		}
 }
