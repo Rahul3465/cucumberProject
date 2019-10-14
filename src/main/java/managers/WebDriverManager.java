@@ -1,10 +1,14 @@
 package managers;
 
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import enums.DriverType;
 import enums.EnvironmentType;
@@ -48,17 +52,26 @@ public class WebDriverManager {
 		case FIREFOX:
 			System.setProperty(FIREFOX_DRIVER_PROPERTY,
 					FileReaderManager.getInstance().getConfigReader().getDriverPath());
-			driver = new FirefoxDriver();
+			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"D:\\BCSM2\\cucumberProject-master\\logs.txt");
+			DesiredCapabilities dc = new DesiredCapabilities();
+			dc.setCapability("marionatte", false);
+			FirefoxOptions opt = new FirefoxOptions();
+			opt.merge(dc);
+			driver = new FirefoxDriver(opt);
 			break;
 		case CHROME:
 			System.setProperty(CHROME_DRIVER_PROPERTY,
 					FileReaderManager.getInstance().getConfigReader().getDriverPath());
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			options.setExperimentalOption("useAutomationExtension", false);
+			options.setExperimentalOption("excludeSwitches",Collections.singletonList("enable-automation"));
+			driver = new ChromeDriver(options);
 			break;
 		}
 
 		if (FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize())
-			driver.manage().window().fullscreen();
+			driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(),
 				TimeUnit.SECONDS);
 		return driver;
